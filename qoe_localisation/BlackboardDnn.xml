@@ -5,7 +5,9 @@
         <Param Type="double">16000</Param>
     </dataConnection>
 
-    <KS Name="loc" Type="DnnLocationKS"/>
+    <KS Name="loc" Type="DnnLocationKS" >
+        <Param Type="char">MCT-DIFFUSE-FRONT</Param>
+    </KS>
     <KS Name="conf" Type="ConfusionKS">
         <!-- Disable confusion solving (== no head rotation) -->
         <Param Type="int">0</Param>
