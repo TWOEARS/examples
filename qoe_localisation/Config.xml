@@ -2,6 +2,6 @@
 <requirements>
     <TwoEarsPart branch="master"  sub="src"    startup="startBinauralSimulator">binaural-simulator</TwoEarsPart>
     <TwoEarsPart branch="master"               startup="startAuditoryFrontEnd">auditory-front-end</TwoEarsPart>
-    <TwoEarsPart branch="master" startup="startBlackboardSystem">blackboard-system</TwoEarsPart>
+    <TwoEarsPart branch="localise_synthesized_sources" startup="startBlackboardSystem">blackboard-system</TwoEarsPart>
     <TwoEarsPart                  sub="API_MO" startup="SOFAstart">sofa</TwoEarsPart>
 </requirements>
