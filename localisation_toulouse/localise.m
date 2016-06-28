@@ -2,8 +2,6 @@ function localise()
 % Localisation example comparing localisation with and without head rotations
 
 warning('off','all');
-
-% Initialize Two!Ears model and check dependencies
 startTwoEars('Config.xml');
 
 % === Configuration
