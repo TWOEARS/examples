@@ -2,7 +2,7 @@
 <blackboardsystem>
 
     <dataConnection Type="AuditoryFrontEndKS"/>
-
+        
     <KS Name="loc" Type="GmmLocationKS"/>
     <KS Name="conf" Type="ConfusionKS">
         <!-- Disable confusion solving (== no head rotation) -->
