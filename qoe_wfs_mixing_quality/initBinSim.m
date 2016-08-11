@@ -1,14 +1,12 @@
 function sim = initBinSim()
-%initBinSim initializes the binaural simulator for the Pinte 56 circular loudspeaker array
+%initBinSim initializes the binaural simulator for the Pinta 56 circular loudspeaker array
 %
 %   USAGE
 %       sim = initBinSim()
 
-
-experimentPath = 'experiments/2016-06-01_wfs_mixing_quality/';
 sim = simulator.SimulatorConvexRoom();
-% Initialize 56 loudspeakers
-nSources = 56;
+brsPaths = brsFiles();
+nSources = length(brsPaths);
 sources = {};
 for n=1:nSources
     sources = {sources{:}, simulator.source.Point()};
@@ -22,8 +20,7 @@ set(sim, ...
 for n=1:nSources
     set(sim.Sources{n}, ...
         'Name', sprintf('Loudspeaker %i', n), ...
-        'IRDataset', simulator.DirectionalIR( ...
-            [experimentPath, 'brs/', sprintf('ls%02.0f.wav', n)]), ...
+        'IRDataset', simulator.DirectionalIR(brsPaths{n}), ...
         'AudioBuffer', simulator.buffer.FIFO(1) ...
         );
 end
