@@ -24,4 +24,6 @@ for n=1:nSources
         'AudioBuffer', simulator.buffer.FIFO(1) ...
         );
 end
+% Set head rotation to 0°
+sim.rotateHead(0, 'absolute');
 % vim: set sw=4 ts=4 et tw=90:
