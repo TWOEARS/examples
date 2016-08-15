@@ -1,8 +1,11 @@
 startTwoEars('Config.xml');
 
-sim = initBinSim();
+idxTime = [1:5*44100]; % 0-30s
 
-idxConditions = [9 10 11 12]; % [m2 m1 p1 p2]
+sim = initBinSim();
+conditions = conditionFiles();
+
+idxConditions = [9 10 2 11 12]; % [m2 m1 ref p1 p2]
 for ii=1:length(idxConditions)
     idx = idxConditions(ii);
     sim = updateBinSim(sim, idx);
@@ -10,7 +13,15 @@ for ii=1:length(idxConditions)
     bbs.setRobotConnect(sim);
     bbs.buildFromXml('Blackboard.xml');
     bbs.run();
-    phiDistribution = bbs.blackboard.getData('sourcesAzimuthsDistributionHypotheses');
+    phiDistributions{ii} = bbs.blackboard.getData('sourcesAzimuthsDistributionHypotheses');
+end
+
+return
+
+% Analysis and plotting
+for ii=1:length(idxConditions)
+    idx = idxConditions(ii);
+    phiDistribution = phiDistributions{ii};
     % Average over time
     dist = zeros(1,37);
     for jj=1:size(phiDistribution, 2)
@@ -18,8 +29,9 @@ for ii=1:length(idxConditions)
     end
     distribution{ii} = dist / size(phiDistribution, 2);
     figure;
-    plot(phiDistribution(1).data.azimuths, distribution{ii});
-    title(sprintf('Condition %i', idx));
+    plot(wrapTo180(phiDistribution(1).data.azimuths), distribution{ii});
+    [~, name] = fileparts(conditions{idx});
+    title(sprintf('Condition %i %s', idx, name));
     xlabel('Azimuth / deg');
     ylabel('Probability');
 end

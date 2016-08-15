@@ -1,8 +1,8 @@
-function sim = updateBinSim(sim, idxCondition)
+function sim = updateBinSim(sim, idxCondition, idxTime)
 %updateBinSim switch to another audio condition
 %
 %   USAGE
-%       sim = updateBinSim(sim, idxCondition)
+%       sim = updateBinSim(sim, idxCondition, [idxTime])
 %
 %   INPUT PARAMETERS
 %       sim          - binaural simulator object
@@ -26,6 +26,8 @@ function sim = updateBinSim(sim, idxCondition)
 %                      17 : wfs_vocals_compression_equalizing_reverb_m1
 %                      18 : wfs_vocals_compression_equalizing_reverb_p1
 %                      19 : wfs_vocals_compression_equalizing_p1
+%       idxTime      - [timeStart timeStop] in samples,
+%                      default: [441001 882000] => 10s - 20s
 %
 %   OUTPUT PARAMETERS
 %       sim         - updated binaural simulator object
@@ -37,7 +39,10 @@ function sim = updateBinSim(sim, idxCondition)
 %     Convention, paper 9533, 2016. http://www.aes.org/e-lib/browse.cfm?elib=18232
 
 
-nargchk(2,2,nargin);
+nargchk(2,3,nargin);
+if nargin<3
+    idxTime = [441001 882000];
+end
 
 %% === Conditions ===
 conditions = conditionFiles();
@@ -48,7 +53,7 @@ nSources = 56;
 sim.set('ShutDown', true);
 inputSignal = audioread(xml.dbGetFile(conditions{idxCondition}));
 % Use only first 10s-20s
-inputSignal = inputSignal(1*441000+1:2*441000, :);
+inputSignal = inputSignal(idxTime(1):idxTime(2), :);
 % Assign audio signal to binaural simulation
 if idxCondition==1 % stereo uses only two loudspeakers
     sim.Sources{52}.AudioBuffer.setData(inputSignal(:, 57));
