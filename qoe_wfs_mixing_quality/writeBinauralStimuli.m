@@ -15,7 +15,7 @@ sim = initBinSim();
 
 %% === Assign audio material ===
 for ii = 1:length(conditions)
-    sim = updateBinSim(sim, ii);
+    sim = updateBinSim(sim, ii, idxTime);
     while ~sim.isFinished()
         sim.set('Refresh', true);  % refresh all objects
         sim.set('Process', true);

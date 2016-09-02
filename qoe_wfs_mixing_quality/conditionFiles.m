@@ -7,6 +7,7 @@ function conditionPaths = conditionFiles()
 % for WFS and the mix changed at different dimensions afterwards.
 conditions = { ...
     'stereo.wav';               % stereo condition from QoE 010 [1]
+    'surround.wav';             % surround condition from QoE 010 [1]
     'wfs_reference.wav';        % WFS condition from QoE 010 [1]
     'wfs_compression_m2.wav';   % compression switched off
     'wfs_compression_m1.wav';   % less compression
