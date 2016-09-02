@@ -9,6 +9,7 @@ if ~exist(outDir, 'dir')
 end
 
 conditions = conditionFiles();
+idxTime = [1 1323001]; % / samples (first 30s)
 
 sim = initBinSim();
 
