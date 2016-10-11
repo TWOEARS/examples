@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<scene
+  Renderer="ssr_brs"
+  BlockSize="4096"
+  SampleRate="44100"
+  LengthOfSimulation = "3">
+  <source Name="Source1"
+          Type="point"
+          Position="0.8660 0.5 1.75">
+    <buffer ChannelMapping="1"
+            Type="ring"/>
+  </source>
+  <sink Name="Head"
+        Position="0 0 1.75"
+        UnitX="1 0 0"
+        UnitZ="0 0 1"/>
+</scene>
