@@ -5,7 +5,7 @@ idxTime = [10,13]*44100; % 2 seconds
 sim = initBinSim();
 conditions = conditionFiles();
 
-idxConditions = [3 14 15]; % [m2 m1 ref p1 p2]
+idxConditions = [3 14 15 16]; % [m2 m1 ref p1 p2]
 reverb = {};
 clarity = {};
 asw = {};
