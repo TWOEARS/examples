@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <blackboardsystem>
 
-    <dataConnection Type="AuditoryFrontEndKS"/>
+    <dataConnection Type="AuditoryFrontEndKS">
+       <Param Type="double">44100</Param>
+    </dataConnection>
 
-    <KS Name="seg" Type="SegmentationKS">
-        <Param Type="char">DemoKS</Param>
+    <KS Name="seg" Type="StreamSegregationKS">
+        <Param Type="char">~/projects/twoears/software/segmentation-training-pipeline/test/ExampleParameters.yaml</Param>
         <Param Type="double">2</Param>
-        <Param Type="int">3</Param>
-        <Param Type="int">1</Param>
+        <Param Type="double">0</Param>
     </KS>
     
     <KS Name="schuitman" Type="SchuitmanKS">

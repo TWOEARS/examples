@@ -1,4 +1,4 @@
-startTwoEars('segmentation_config.xml');
+startTwoEars('schuitman_config.xml');
 
 idxTime = [10,13]*44100; % 2 seconds
 

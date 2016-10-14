@@ -11,7 +11,7 @@
 %   Ruhr-Universitaet Bochum
 %   Universitaetsstr. 150, 44801 Bochum
 
-startTwoEars('segmentation_config.xml');
+startTwoEars('schuitman_config.xml');
 
 brirs = { ...
     'impulse_responses/qu_kemar_rooms/auditorium3/QU_KEMAR_Auditorium3_src1_xs+0.00_ys+3.97.sofa'; ...
