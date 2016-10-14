@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<blackboardsystem>
+
+    <dataConnection Type="AuditoryFrontEndKS">
+       <Param Type="double">44100</Param>
+    </dataConnection>
+
+    <KS Name="seg" Type="StreamSegregationKS">
+        <Param Type="char">/home/christopher/Git/Twoears/segmentation-training-pipeline/test/ExampleParameters.yaml</Param>
+        <Param Type="double">0.1</Param>
+        <Param Type="double">60</Param>
+        <Param Type="double">90</Param>
+        <Param Type="double">120</Param>
+    </KS>
+
+    <Connection Mode="replaceOld" Event="AgendaEmpty">
+        <source>scheduler</source>
+        <sink>dataConnect</sink>
+    </Connection>
+    <Connection Mode="replaceOld">
+        <source>dataConnect</source>
+        <sink>seg</sink>
+    </Connection>
+</blackboardsystem>
