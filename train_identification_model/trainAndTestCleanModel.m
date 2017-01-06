@@ -15,7 +15,7 @@ function trainAndTestCleanModel( classname )
 % - Repeat the above on a different set of sound files in order to evaluate
 %   the trained model.
 % 
-if nargin < 1, classname = 'alarm'; end;
+if nargin < 1, classname = 'speech'; end;
 
 startTwoEars('Config.xml');
 
