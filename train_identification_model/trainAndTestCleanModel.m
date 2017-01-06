@@ -1,5 +1,20 @@
 function trainAndTestCleanModel( classname )
-
+%trainAndTestCleanModel This function provides an example of training a
+% sound type identification model for a single sound type using the
+% the Auditory Machine Learning Trainign and Testing Pipeline
+%
+% The function will set up the pipeline to:
+% - Configuring auditory scenes where a single sound source is active
+% - Simulating ambient sounds
+% - Extract block-based features from the auditory representations
+% - Labeling each block by assigning it either to the target sound or use them
+%   as a negative example during training (the sound type is retrieved from the
+%   originating sound file name)
+% - Define a model and configure the training procedure
+% - Perform the training
+% - Repeat the above on a different set of sound files in order to evaluate
+%   the trained model.
+% 
 if nargin < 1, classname = 'alarm'; end;
 
 startTwoEars('Config.xml');
