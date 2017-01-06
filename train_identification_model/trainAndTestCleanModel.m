@@ -19,10 +19,13 @@ if nargin < 1, classname = 'speech'; end;
 
 startTwoEars('Config.xml');
 
-cacheSystemDir = fullfile(getMFilePath(), '..', '..', 'idPipeCache');
+cacheSystemDir = fullfile(getMFilePath(), '..', 'idPipeCache');
 if ~exist(cacheSystemDir, 'dir')
+    mkdir('../idPipeCache')
+    if ~exist(cacheSystemDir, 'dir')
     error(['The cache directory required by the pipeline for saving intermediate data ', ...
-        'does not exist. Please create it and run the script again.']);
+        'does not exist and could not be created. Please create it and run the script again.']);
+    end
 end
 pipe = TwoEarsIdTrainPipe('cacheSystemDir', cacheSystemDir);
 pipe.blockCreator = BlockCreators.MeanStandardBlockCreator( 0.5, 0.5/3 );
