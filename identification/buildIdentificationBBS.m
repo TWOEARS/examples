@@ -3,8 +3,9 @@ function bbs = buildIdentificationBBS(sim,idModels,labels,onOffsets)
 bbs = BlackboardSystem(1);
 bbs.setRobotConnect(sim);
 bbs.setDataConnect('AuditoryFrontEndKS');
+ppRemoveDc = false;
 for ii = 1 : numel( idModels )
-    idKss{ii} = bbs.createKS('IdentityKS', {idModels(ii).name, idModels(ii).dir});
+    idKss{ii} = bbs.createKS('IdentityKS', {idModels(ii).name, idModels(ii).dir, ppRemoveDc});
     idKss{ii}.setInvocationFrequency(10);
 end
 idCheat = bbs.createKS('IdTruthPlotKS', {labels, onOffsets});
