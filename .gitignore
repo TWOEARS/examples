@@ -19,3 +19,4 @@ jtcommand
 *.swp
 
 attention_simulation/Config.xml
+/idPipeCache/*
