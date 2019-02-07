@@ -19,6 +19,6 @@ sourceFiles = sourceFiles(randperm(nFiles));
     'Normalize', true, ...
     'CellOutput', true);
 sourceSignal = vertcat(sourceSignals{:});
-labels = {sourceLabels.class};
-labels(cellfun(@isempty,labels)==1) = [];
 onOffsets = vertcat(sourceLabels.cumOnsetsOffsets);
+labels = vertcat(sourceLabels.class);
+labels(cellfun(@isempty,labels)==1) = [];
